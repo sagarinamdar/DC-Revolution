@@ -1,0 +1,41 @@
+# DC-Revolution - Python & Workspace Configuration
+
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dc_revolution"
+version = "0.1.0"
+description = "DC-Revolution: Specifications, Parametric CAD Modeling, and Multi-Physics Simulations"
+authors = [{ name = "DC-Revolution Engineering Team" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26.0",
+    "scipy>=1.12.0",
+    "matplotlib>=3.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+]
+cad = [
+    "trimesh>=4.0.0",
+]
+sim = [
+    "mujoco>=3.1.0",
+]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --strict-markers"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
